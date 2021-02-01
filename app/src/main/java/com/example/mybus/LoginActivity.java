@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,6 +38,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        preferences=getSharedPreferences("user_login",MODE_PRIVATE);
 
         getSupportActionBar().hide();
 
@@ -75,6 +78,8 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(JSONObject response) {
 
+                            Log.e("res", String.valueOf(response));
+
                             try {
 
                                int success=response.getInt("success");
@@ -83,6 +88,8 @@ public class LoginActivity extends AppCompatActivity {
                                {
                                    String login_id=response.getJSONObject("data").getString("login_id");
                                    String login_type=response.getJSONObject("data").getString("type");
+
+
 
                                    SharedPreferences.Editor editor=preferences.edit();
                                    editor.putString("user_id",login_id);
@@ -93,6 +100,11 @@ public class LoginActivity extends AppCompatActivity {
                                    if (login_type.equals("1"))
                                    {
                                        Intent intent=new Intent(getApplicationContext(),DashboardActivity.class);
+                                       startActivity(intent);
+                                   }
+                                   else if(login_type.equals("2"))
+                                   {
+                                       Intent intent=new Intent(getApplicationContext(),BusActivity.class);
                                        startActivity(intent);
                                    }
                                    else

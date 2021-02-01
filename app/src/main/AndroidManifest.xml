@@ -2,17 +2,23 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mybus">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/mybus"
-        android:networkSecurityConfig="@xml/network_security_config"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/mybus"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyBus">
-        <activity android:name=".DashboardActivity"></activity>
+        <activity android:name=".BusActivity"></activity>
+        <activity android:name=".HelplineActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".ViewBusActivity" />
+        <activity android:name=".DashboardActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".MainActivity">

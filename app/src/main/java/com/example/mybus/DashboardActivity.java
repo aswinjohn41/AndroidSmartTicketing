@@ -10,7 +10,7 @@ import android.widget.ImageView;
 
 public class DashboardActivity extends AppCompatActivity {
 
-    ImageView view_bus,logout;
+    ImageView view_bus,logout,profile,complaints,helpline;
 
     SharedPreferences preferences;
 
@@ -25,10 +25,44 @@ public class DashboardActivity extends AppCompatActivity {
 
         view_bus=findViewById(R.id.view_bus);
         logout=findViewById(R.id.logout);
+        profile=findViewById(R.id.profile);
+        complaints=findViewById(R.id.complaints);
+        helpline=findViewById(R.id.helpline);
 
         preferences=getSharedPreferences("user_login",MODE_PRIVATE);
         login_id=preferences.getString("user_id","");
         login_type=preferences.getString("user_type","");
+
+        helpline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),HelplineActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        complaints.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        view_bus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),ViewBusActivity.class);
+                startActivity(intent);
+            }
+        });
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
