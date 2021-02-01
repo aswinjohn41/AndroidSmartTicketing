@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MyBus</string>
+    <string name="host">http://192.168.43.15/mybus/api/</string>
+</resources>
