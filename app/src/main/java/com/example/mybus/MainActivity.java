@@ -40,6 +40,11 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent=new Intent(getApplicationContext(),DashboardActivity.class);
                     startActivity(intent);
                 }
+                else if (login_type.equals("2"))
+                {
+                    Intent intent=new Intent(getApplicationContext(),BusActivity.class);
+                    startActivity(intent);
+                }
                 else
                     {
                     Intent intent = new Intent(getApplicationContext(), LoginActivity.class);

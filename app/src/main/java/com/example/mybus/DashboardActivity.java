@@ -10,7 +10,7 @@ import android.widget.ImageView;
 
 public class DashboardActivity extends AppCompatActivity {
 
-    ImageView view_bus,logout,profile,complaints,helpline;
+    ImageView view_bus,logout,profile,complaints,helpline,track_bus;
 
     SharedPreferences preferences;
 
@@ -28,10 +28,28 @@ public class DashboardActivity extends AppCompatActivity {
         profile=findViewById(R.id.profile);
         complaints=findViewById(R.id.complaints);
         helpline=findViewById(R.id.helpline);
+        track_bus=findViewById(R.id.track_bus);
 
         preferences=getSharedPreferences("user_login",MODE_PRIVATE);
         login_id=preferences.getString("user_id","");
         login_type=preferences.getString("user_type","");
+
+        track_bus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent=new Intent(getApplicationContext(),TrackLocationActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        complaints.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),ComplaintActivity.class);
+                startActivity(intent);
+            }
+        });
 
         helpline.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,12 +59,7 @@ public class DashboardActivity extends AppCompatActivity {
             }
         });
 
-        complaints.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
 
         profile.setOnClickListener(new View.OnClickListener() {
             @Override

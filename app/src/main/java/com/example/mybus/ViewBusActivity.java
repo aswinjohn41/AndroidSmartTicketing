@@ -66,14 +66,17 @@ public class ViewBusActivity extends AppCompatActivity {
 
                        JSONObject object=response.getJSONObject(i);
                        String bus_id=object.getString("bus_id");
+                       String bus_login_id=object.getString("login_id");
                        String bus_name=object.getString("bus_name");
                        String bus_starting_point=object.getString("bus_starting_point");
                        String bus_end_point=object.getString("bus_end_point");
                        String bus_description=object.getString("bus_description");
                        String bus_total_seats=object.getString("bus_total_seats");
                        String bus_route=object.getString("bus_route");
+                       String bus_date=object.getString("date");
+                       String bus_time=object.getString("time");
 
-                      busModel=new ViewBusModel(bus_id,bus_name,bus_starting_point,bus_end_point,bus_description,bus_total_seats,bus_route);
+                      busModel=new ViewBusModel(bus_id,bus_login_id,bus_name,bus_starting_point,bus_end_point,bus_description,bus_total_seats,bus_route,bus_date,bus_time);
                       showBusArrayList.add(busModel);
                       busAdapter.notifyDataSetChanged();
                       show_bus_listview.setAdapter(busAdapter);
